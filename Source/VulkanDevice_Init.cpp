@@ -737,6 +737,7 @@ void RTGL1::VulkanDevice::CreateInstance( const RgInstanceCreateInfo& info )
 
 void RTGL1::VulkanDevice::CreateDevice()
 {
+    // Disabled shaderStorageImageMultisample, shaderFloat64 and shaderResourceMinLod for Intel Arc support
     VkPhysicalDeviceFeatures features = {
         .robustBufferAccess                      = 1,
         .fullDrawIndexUint32                     = 1,
@@ -768,7 +769,7 @@ void RTGL1::VulkanDevice::CreateDevice()
         .shaderTessellationAndGeometryPointSize  = 1,
         .shaderImageGatherExtended               = 1,
         .shaderStorageImageExtendedFormats       = 1,
-        .shaderStorageImageMultisample           = 1,
+        .shaderStorageImageMultisample           = 0,
         .shaderStorageImageReadWithoutFormat     = 1,
         .shaderStorageImageWriteWithoutFormat    = 1,
         .shaderUniformBufferArrayDynamicIndexing = 1,
@@ -777,11 +778,11 @@ void RTGL1::VulkanDevice::CreateDevice()
         .shaderStorageImageArrayDynamicIndexing  = 1,
         .shaderClipDistance                      = 1,
         .shaderCullDistance                      = 1,
-        .shaderFloat64                           = 1,
+        .shaderFloat64                           = 0,
         .shaderInt64                             = 1,
         .shaderInt16                             = 1,
         .shaderResourceResidency                 = 1,
-        .shaderResourceMinLod                    = 1,
+        .shaderResourceMinLod                    = 0,
         .sparseBinding                           = 0,
         .sparseResidencyBuffer                   = 0,
         .sparseResidencyImage2D                  = 0,

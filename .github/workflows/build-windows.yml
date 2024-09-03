@@ -1,6 +1,7 @@
 name: Windows
 
-on: push
+on: 
+  workflow_dispatch:
 
 env:
   BUILD_TYPE: RelWithDebInfo
